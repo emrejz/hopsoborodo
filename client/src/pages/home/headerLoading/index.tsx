@@ -2,7 +2,7 @@ import React from "react";
 import Block from "styledComps/block";
 import SpinnerBall from "./spinnerBall";
 
-import "./headerLoading.scss";
+import "./index.scss";
 interface IProps {
   loading: boolean;
 }

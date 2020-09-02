@@ -1,8 +1,8 @@
 import React from "react";
 import Block from "styledComps/block";
-import HeaderLoading from "components/headerLoading/headerLoading";
+import HeaderLoading from "./headerLoading";
 
-import "./home.scss";
+import "./index.scss";
 
 function Home() {
   return (

@@ -1,7 +1,7 @@
 import React from "react";
-import Home from "pages/home/Home";
+import Home from "pages/home";
 
-import "./app.scss";
+import "./index.scss";
 
 function App() {
   return (

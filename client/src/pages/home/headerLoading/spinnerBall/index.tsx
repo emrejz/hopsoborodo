@@ -1,7 +1,7 @@
 import React from "react";
 import Block from "styledComps/block";
 
-import "./spinnerBall.scss";
+import "./index.scss";
 interface IProps {
   animationDelay: string;
 }
