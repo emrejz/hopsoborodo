@@ -8,6 +8,7 @@ interface Props {
   clr?: string;
   size?: string;
   font?: string;
+  wei?: string;
   mar?: string;
   pad?: string;
   pl?: string;
@@ -29,6 +30,7 @@ const Text: StyledComponent<"span", any, Props, never> = styled.span<Props>(
    ${props.clr ? `color:var(${props.clr})` : ""};  
    ${props.size ? `font-size:var(${props.size})` : ""};  
    ${props.font ? `font-family:var(${props.font})` : ""};  
+   ${props.wei ? `font-weight:var(${props.wei})` : ""};  
    ${props.mar ? `margin:${props.mar}` : ""}; 
    ${props.pad ? `padding:${props.pad}` : ""};   
    ${props.pl ? `padding-left:${props.pl}` : ""};  

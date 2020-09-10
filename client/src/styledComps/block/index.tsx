@@ -1,6 +1,7 @@
 import styled, { StyledComponent } from "styled-components";
 interface Props {
   flex?: string;
+  shr?: string;
   col?: boolean;
   wrp?: boolean;
   jc?: string;
@@ -25,6 +26,7 @@ const Block: StyledComponent<"div", any, Props, never> = styled.div<Props>(
     display: flex;
     flex-basis: auto;
     ${props.flex ? `flex:${props.flex}` : ""}; 
+    ${props.shr ? `flex-shrink:${props.shr}` : ""}; 
     ${props.col ? `flex-direction: column` : ""}; 
     ${props.wrp ? `flex-wrap: wrap` : ""}; 
     ${props.jc ? `justify-content:${props.jc}` : ""}; 
