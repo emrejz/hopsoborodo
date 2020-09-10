@@ -1,12 +1,12 @@
 import React from "react";
-import Home from "pages/home";
+import Root from "router";
 
 import "./index.scss";
 
 function App() {
   return (
     <div className="App">
-      <Home />
+      <Root />
     </div>
   );
 }
