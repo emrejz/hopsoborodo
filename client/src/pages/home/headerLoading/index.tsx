@@ -9,7 +9,6 @@ interface IProps {
 const HeaderLoading: React.FC<IProps> = ({ loading }) => {
   return (
     <Block
-      flex="1"
       hei={loading ? "60px" : "48px"}
       jc="center"
       ai="center"
