@@ -1,8 +1,29 @@
 :root {
+  // devices
   --mobil: 1280px;
 
+  // background-colors
   --primary: #fff;
   --spinnerBall: #ff6000;
+  --black: #000;
+
+  // colors
+  --topLink: #7b7b7b;
+  --topLinkOrange: #ed433e;
+
+  //border-shadow color
+  --deliveryMenu: rgba(0, 0, 0, 0.16);
+  // sizes
+  --smLink: 11px;
+
+  //weight
+  --w100: 100;
+  --w200: 200;
+  --w300: 300;
+  --w400: 400;
+  --w500: 500;
+  --w600: 600;
+  --w700: 700;
 }
 
 *,
@@ -12,6 +33,10 @@
   padding: 0;
   border: none;
   font: inherit;
+  box-sizing: border-box;
+}
+a {
+  text-decoration: none;
 }
 html {
   font-size: 16px;
