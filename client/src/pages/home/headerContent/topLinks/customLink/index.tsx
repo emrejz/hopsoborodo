@@ -13,12 +13,12 @@ interface IProps {
 }
 const CustomLink: React.FC<IProps> = ({ item: { title, path } }) => {
   return (
-    <Block mr="10px" ml="10px" shr="0" className={"customLinkContainer"}>
+    <Block mr="10px" ml="10px" shr="0" className="customLinkContainer">
       <Link to={path} className={title === "Bugün Teslimat" ? " delivery" : ""}>
         <Text
-          size="--smLink"
           clr={title === "Girişimci Kadınlar" ? "--topLinkOrange" : "--topLink"}
           wei="--w700"
+          size="--smLink"
           className="title"
         >
           {title}
