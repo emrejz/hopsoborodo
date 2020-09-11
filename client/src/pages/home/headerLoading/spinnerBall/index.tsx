@@ -9,7 +9,7 @@ const SpinnerBall: React.FC<IProps> = ({ animationDelay }) => {
   return (
     <Block wid="18px" hei="18px" ai="center" jc="center">
       <Block
-        bc="--spinnerBall"
+        bc="--orange"
         className="ballContainer"
         style={{ animationDelay }}
       ></Block>
