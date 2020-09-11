@@ -11,6 +11,7 @@
     "styled-components": "^5.1.1"
   },
   "devDependencies": {
+    "@svgr/cli": "^5.4.0",
     "@testing-library/jest-dom": "^4.2.4",
     "@testing-library/react": "^9.3.2",
     "@testing-library/user-event": "^7.1.2",
@@ -26,7 +27,8 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "svgr": "svgr ./src/assets/svgs -d ./src/components/icons "
   },
   "eslintConfig": {
     "extends": "react-app"
