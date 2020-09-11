@@ -6,12 +6,7 @@ import "./index.scss";
 interface IProps {}
 const HeaderContent: React.FC<IProps> = () => {
   return (
-    <Block
-      hei="118px"
-      ai="flex-start"
-      bc="--primary"
-      className="headerContentContainer"
-    >
+    <Block col hei="118px" bc="--primary" className="headerContentContainer">
       <TopLinks />
     </Block>
   );
