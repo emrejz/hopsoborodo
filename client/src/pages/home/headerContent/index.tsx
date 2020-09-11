@@ -1,13 +1,14 @@
 import React from "react";
 import Block from "styledComps/block";
 import TopLinks from "./topLinks";
+import MasterBar from "./masterBar";
 
-import "./index.scss";
 interface IProps {}
 const HeaderContent: React.FC<IProps> = () => {
   return (
-    <Block col hei="118px" bc="--primary" className="headerContentContainer">
+    <Block col hei="118px" bc="--primary">
       <TopLinks />
+      <MasterBar />
     </Block>
   );
 };
