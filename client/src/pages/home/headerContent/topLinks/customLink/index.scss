@@ -1,55 +1,48 @@
 .customLinkContainer {
-  .deliveryLink {
+  .delivery {
     position: relative;
 
     &:hover {
-      padding-bottom: 20px;
-
+      & {
+        position: relative;
+        z-index: 30;
+      }
       .overlay {
         visibility: visible;
       }
-      &:before {
-        content: "";
-        top: 32px;
-        left: -100px;
-        position: absolute;
-        z-index: 5;
-        width: 283px;
-        height: 60px;
-        background-color: var(--primary);
-        box-shadow: 0 1px 4px 0 var(--deliveryMenu);
-        cursor: default;
+      .menuContainer {
+        visibility: visible;
       }
 
-      span {
+      &::before {
+        content: "";
+        top: 26px;
+        left: 50%;
+        border-top: 1px solid var(--deliveryMenu);
+        border-left: 1px solid var(--deliveryMenu);
+        position: absolute;
+        z-index: 3;
+        width: 12px;
+        height: 12px;
+        background-color: var(--primary);
+        transform: rotate(45deg);
+      }
+      .title {
         color: var(--primary);
         position: relative;
         z-index: 4;
-        &::before {
-          content: "";
-          top: 22px;
-          left: 50%;
-          border-top: 1px solid var(--deliveryMenu);
-          border-left: 1px solid var(--deliveryMenu);
-          position: absolute;
-          z-index: 3;
-          width: 12px;
-          height: 12px;
-          background-color: var(--primary);
-          transform: rotate(45deg);
-        }
       }
     }
   }
 
   .overlay {
     position: fixed;
-    z-index: 1;
+    z-index: 2;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba($color: var(--black), $alpha: 0.4);
+    background-color: rgba($color: black, $alpha: 0.4);
     visibility: hidden;
     &:hover {
       visibility: hidden !important;
