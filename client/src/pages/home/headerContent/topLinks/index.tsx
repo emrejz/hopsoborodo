@@ -3,12 +3,11 @@ import Block from "styledComps/block";
 import CustomLink from "./customLink";
 import { topLinks } from "constants/index";
 
-import "./index.scss";
 interface IProps {}
 
 const TopLinks: React.FC<IProps> = () => {
   return (
-    <Block flex="1" jc="center" mt="14px" className="topLinksContainer">
+    <Block jc="center" mt="14px">
       {topLinks.map((item, index) => (
         <CustomLink key={index} item={item} />
       ))}
