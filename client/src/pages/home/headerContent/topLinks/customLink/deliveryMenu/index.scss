@@ -1,0 +1,26 @@
+.menuContainer {
+  position: absolute;
+  z-index: 3;
+  width: 283px;
+  left: -100px;
+  top: 0px;
+  padding-top: 30px;
+  background-color: transparent;
+  visibility: hidden;
+
+  .content {
+    background-color: var(--primary);
+    box-shadow: 0 1px 4px 0 var(--deliveryMenu);
+    cursor: default;
+    flex: 1;
+    padding: 16px;
+  }
+  img {
+    position: absolute;
+    left: -48px;
+    top: 150px;
+  }
+  button {
+    border-radius: 5px;
+  }
+}
