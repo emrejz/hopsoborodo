@@ -7,6 +7,10 @@ interface Props {
   jc?: string;
   ai?: string;
   bc?: string;
+  size?: string;
+  font?: string;
+  clr?: string;
+  wei?: string;
   hei?: string;
   wid?: string;
   mar?: string;
@@ -33,7 +37,11 @@ const Block: StyledComponent<"div", any, Props, never> = styled.div<Props>(
     ${props.ai ? `align-items:${props.ai}` : ""}; 
     ${props.bc ? `background-color:var(${props.bc})` : ""}; 
     ${props.hei ? `height:${props.hei}` : ""}; 
-    ${props.wid ? `width:${props.wid}` : ""};   
+    ${props.wid ? `width:${props.wid}` : ""};  
+    ${props.size ? `font-size:var(${props.size})` : ""};    
+    ${props.font ? `font-family:var(${props.font})` : ""};    
+    ${props.clr ? `font-color:var(${props.clr})` : ""};    
+    ${props.wei ? `font-weight:var(${props.wei})` : ""};    
     ${props.mar ? `margin:${props.mar}` : ""}; 
     ${props.pad ? `padding:${props.pad}` : ""};
     ${props.pl ? `padding-left:${props.pl}` : ""};
