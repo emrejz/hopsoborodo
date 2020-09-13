@@ -1,16 +1,13 @@
 import React from "react";
-import Block from "styledComps/block";
-import HeaderLoading from "./headerLoading";
-import HeaderContent from "./headerContent";
+import Layout from "components/layout";
 
 import "./index.scss";
 
 function Home() {
   return (
-    <Block col className="homeContainer">
-      <HeaderLoading loading={true} />
-      <HeaderContent />
-    </Block>
+    <Layout>
+      <div>emre</div>
+    </Layout>
   );
 }
 
