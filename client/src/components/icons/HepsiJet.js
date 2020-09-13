@@ -9,7 +9,7 @@ function SvgHepsiJet(props) {
       viewBox="0 0 92.9 19"
       xmlSpace="preserve"
       stroke="none"
-      fill="none"
+      fill="currentColor"
       {...props}
     >
       <style>
