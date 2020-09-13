@@ -27,10 +27,10 @@ const Text: StyledComponent<"span", any, Props, never> = styled.span<Props>(
    ${props.ta ? ` text-align:${props.ta}` : ""};  
    ${props.wid ? `width:${props.wid}` : ""};  
    ${props.bc ? `background-color:var(${props.bc})` : ""};  
-   ${props.clr ? `color:var(${props.clr})` : "inherit"};  
-   ${props.size ? `font-size:var(${props.size})` : "inherit"};  
-   ${props.font ? `font-family:var(${props.font})` : "inherit"};  
-   ${props.wei ? `font-weight:var(${props.wei})` : "inherit"};  
+   ${props.clr ? `color:var(${props.clr})` : "color:inherit"};  
+   ${props.size ? `font-size:var(${props.size})` : "font-size:inherit"};  
+   ${props.font ? `font-family:var(${props.font})` : "font-family:inherit"};  
+   ${props.wei ? `font-weight:var(${props.wei})` : "font-weight:inherit"};  
    ${props.mar ? `margin:${props.mar}` : ""}; 
    ${props.pad ? `padding:${props.pad}` : ""};   
    ${props.pl ? `padding-left:${props.pl}` : ""};  
