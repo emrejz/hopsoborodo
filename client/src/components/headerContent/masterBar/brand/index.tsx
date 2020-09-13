@@ -1,0 +1,19 @@
+import React from "react";
+import { Link } from "react-router-dom";
+import Block from "styledComps/block";
+import Text from "styledComps/text";
+
+interface IProps {}
+const Brand: React.FC<IProps> = () => {
+  return (
+    <Block mr="10px" ml="10px" shr="0" className="brandContainer">
+      <Link to="/">
+        <Text size="--brand" clr="--orange" font="--helveticaBold" wei="--w700">
+          Hopsoborodo
+        </Text>
+      </Link>
+    </Block>
+  );
+};
+
+export default Brand;
