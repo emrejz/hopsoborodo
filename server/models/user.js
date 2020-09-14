@@ -26,12 +26,15 @@ User.pre("save", function (next) {
     if (err) {
       return next(err);
     }
-    if (this.password && this.password.trim() && this.password.trim() > 3) {
-      bcrypt.hash(user.password, salt, null, function (err, hash) {
+    if (
+      user.password &&
+      user.password.trim() &&
+      user.password.trim().length > 2
+    ) {
+      bcrypt.hash(user.password, salt, function (err, hash) {
         if (err) {
           return next(err);
         }
-
         user.password = hash;
         next();
       });
@@ -40,4 +43,12 @@ User.pre("save", function (next) {
     }
   });
 });
+User.methods.comparePassword = function (passw, cb) {
+  bcrypt.compare(passw, this.password, function (err, isMatch) {
+    if (err) {
+      return cb(err, false);
+    }
+    return cb(null, isMatch);
+  });
+};
 module.exports = mongoose.model("user", User);
