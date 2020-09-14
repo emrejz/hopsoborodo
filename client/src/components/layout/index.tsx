@@ -2,6 +2,7 @@ import React, { ReactElement } from "react";
 import HeaderContent from "components/header/headerContent";
 import HeaderLoading from "components/header/headerLoading";
 import ColorfulStick from "components/header/colorfulStick";
+import QuickMenu from "components/header/quickMenu";
 import Footer from "components/footer";
 import Block from "styledComps/block";
 
@@ -15,6 +16,7 @@ const Index: React.FC<IProps> = ({ children }) => {
       <HeaderLoading loading={false} />
       <HeaderContent />
       <ColorfulStick />
+      <QuickMenu />
       <main>{children}</main>
       <Footer />
     </Block>
