@@ -4,6 +4,7 @@ module.exports = async () => {
     await mongoose.connect("mongodb://localhost:27017/hopsoborodo", {
       useNewUrlParser: true,
       useUnifiedTopology: true,
+      useCreateIndex: true,
     });
     console.log("mongo ok");
   } catch (error) {
