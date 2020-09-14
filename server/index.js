@@ -1,21 +1,16 @@
-const { ApolloServer, gql } = require("apollo-server");
-const typeDefs = gql`
-  type Book {
-    title: String
-    author: String
-  }
+const express = require("express");
+const { ApolloServer } = require("apollo-server-express");
+const { importSchema } = require("graphql-import");
+const resolvers = require("./graphql/resolvers");
 
-  type Query {
-    books: [Book]
-  }
-`;
-const resolvers = {
-  Query: {
-    books: () => books,
-  },
-};
-const server = new ApolloServer({ typeDefs, resolvers });
-
-server.listen().then(({ url }) => {
-  console.log(`🚀  Server ready at ${url}`);
+const app = express();
+const server = new ApolloServer({
+  typeDefs: importSchema("./graphql/index.graphql"),
+  resolvers,
 });
+
+server.applyMiddleware({ app });
+
+app.listen({ port: 4000 }, () =>
+  console.log(`🚀 Server ready at http://localhost:4000${server.graphqlPath}`)
+);
