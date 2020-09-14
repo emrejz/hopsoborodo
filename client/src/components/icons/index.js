@@ -1,3 +1,6 @@
 export { default as Close } from './Close'
+export { default as DownArrow } from './DownArrow'
 export { default as HepsiJet } from './HepsiJet'
 export { default as Search } from './Search'
+export { default as ShopCart } from './ShopCart'
+export { default as User } from './User'
