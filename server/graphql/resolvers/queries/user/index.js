@@ -1,8 +1,19 @@
+const bcrypt = require("bcryptjs");
+
 module.exports = {
-  loginUser: async (parent, args) => {
+  loginUser: async (parent, { data: { username, password } }, { User }) => {
     try {
-      console.log(parent);
-      console.log(args);
+      const user = await User.findOne({ username });
+      if (user) {
+        const result = await bcrypt.compare(password, user.password);
+        if (result) {
+          return "ok";
+        } else {
+          throw new Error("Wrong password!");
+        }
+      } else {
+        throw new Error("Wrong username!");
+      }
     } catch (error) {
       throw error;
     }
