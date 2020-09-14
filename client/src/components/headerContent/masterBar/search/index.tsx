@@ -39,6 +39,7 @@ const Search: React.FC<IProps> = () => {
             onBlur={_onFocus}
             value={text}
             onChange={(e) => setText(e.target.value)}
+            placeholder="Ürün, kategori veya marka ara"
           />
           {text.length > 0 && (
             <Icon.Close
