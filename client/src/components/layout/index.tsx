@@ -1,6 +1,6 @@
 import React, { ReactElement } from "react";
 import HeaderContent from "components/header/headerContent";
-import HeaderLoading from "components/headerLoading";
+import HeaderLoading from "components/header/headerLoading";
 import Footer from "components/footer";
 import Block from "styledComps/block";
 
