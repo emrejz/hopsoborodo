@@ -6,7 +6,7 @@ import MasterBar from "./masterBar";
 interface IProps {}
 const HeaderContent: React.FC<IProps> = () => {
   return (
-    <Block col hei="110px" bc="--primary">
+    <Block as="header" col hei="110px" bc="--primary">
       <TopLinks />
       <MasterBar />
     </Block>

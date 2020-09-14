@@ -7,7 +7,7 @@ interface IProps {}
 
 const TopLinks: React.FC<IProps> = () => {
   return (
-    <Block jc="center" mt="14px">
+    <Block as="nav" jc="center" mt="14px">
       {topLinks.map((item, index) => (
         <CustomLink key={index} item={item} />
       ))}

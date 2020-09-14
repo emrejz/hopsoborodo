@@ -1,6 +1,7 @@
 import React, { ReactElement } from "react";
 import HeaderContent from "components/headerContent";
 import HeaderLoading from "components/headerLoading";
+import Footer from "components/footer";
 import Block from "styledComps/block";
 
 interface IProps {
@@ -12,7 +13,8 @@ const Index: React.FC<IProps> = ({ children }) => {
     <Block col>
       <HeaderLoading loading={false} />
       <HeaderContent />
-      {children}
+      <main>{children}</main>
+      <Footer />
     </Block>
   );
 };

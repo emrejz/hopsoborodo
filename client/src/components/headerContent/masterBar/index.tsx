@@ -9,7 +9,7 @@ interface IProps {}
 
 const MasterBar: React.FC<IProps> = () => {
   return (
-    <Block flex="1" jc="center" pt="16px">
+    <Block as="nav" flex="1" jc="center" pt="16px">
       <Block wid="1200px" ai="flex-start" jc="space-between">
         <Brand />
         <Search />
