@@ -1,10 +1,10 @@
 const { forUser } = require("../../../../helpers/mongoError");
+const { sign } = require("../../../../helpers/jwt");
 module.exports = {
-  createUser: async (parent, { data }, { User }) => {
+  createUser: async (parent, { data: { username, password } }, { User }) => {
     try {
-      console.log(data);
-      await User({ ...data }).save();
-      return "emre";
+      await User({ username, password }).save();
+      return { token: await sign(username) };
     } catch (error) {
       forUser(error.message);
       throw error;

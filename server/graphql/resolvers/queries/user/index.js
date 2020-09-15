@@ -1,4 +1,5 @@
 const bcrypt = require("bcryptjs");
+const { sign } = require("../../../../helpers/jwt");
 
 module.exports = {
   loginUser: async (parent, { data: { username, password } }, { User }) => {
@@ -7,7 +8,7 @@ module.exports = {
       if (user) {
         const result = await bcrypt.compare(password, user.password);
         if (result) {
-          return "ok";
+          return { token: await sign(username) };
         } else {
           throw new Error("Wrong password!");
         }
