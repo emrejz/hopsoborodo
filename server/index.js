@@ -4,6 +4,7 @@ const { importSchema } = require("graphql-import");
 const resolvers = require("./graphql/resolvers");
 const mongo = require("./db/mongo");
 const User = require("./models/user");
+require("dotenv").config();
 
 mongo();
 const app = express();
