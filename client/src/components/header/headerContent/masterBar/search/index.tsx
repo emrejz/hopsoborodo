@@ -55,7 +55,7 @@ const Search: React.FC<IProps> = () => {
             pl="32px"
             pr="32px"
             pt="16px"
-            size="--inputHelpText"
+            size="1.2rem"
             clr="--inputHelpClr"
           >
             Aramaya başlamak için <Text wei="--w700">en az 2 karakter</Text>{" "}
@@ -63,10 +63,8 @@ const Search: React.FC<IProps> = () => {
           </Text>
         )}
       </Block>
-      <Block className="searchButton">
-        <Text clr="--white" wei="--w700">
-          ARA
-        </Text>
+      <Block as="button" className="searchButton">
+        <Text>ARA</Text>
       </Block>
     </Block>
   );

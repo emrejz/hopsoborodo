@@ -11,7 +11,7 @@ const Index = () => {
       jc="center"
       hei="500px"
     >
-      <Text clr="--white" size="50px">
+      <Text clr="--white" size="5rem">
         Footer
       </Text>
     </Block>

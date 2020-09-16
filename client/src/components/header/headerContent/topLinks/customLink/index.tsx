@@ -18,7 +18,7 @@ const CustomLink: React.FC<IProps> = ({ item: { title, path } }) => {
         <Text
           clr={title === "Girişimci Kadınlar" ? "--topLinkOrange" : "--topLink"}
           wei="--w700"
-          size="--smLink"
+          size="1.1rem"
           className="title"
         >
           {title}

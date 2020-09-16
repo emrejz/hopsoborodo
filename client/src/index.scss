@@ -44,23 +44,7 @@
   //border-shadow color
   --deliveryMenu: rgba(0, 0, 0, 0.16);
   --searchBorderNoActive: #919191;
-
-  // sizes
-  --smLink: 11px;
-
-  --deliveryTitle: 15px;
-  --deliveryDesc: 12px;
-  --deliveryFooter: 13px;
-
-  --brand: 34px;
-  --inputHelpText: 12px;
-  --accountTitleL: 15px;
-  --accountTitleS: 10px;
-  --accountTitleS: 10px;
-  --shopCartText: 15px;
-  --shopCountText: 12px;
-
-  --quickMenuItemText: 14px;
+  --signButtons: #eee;
 
   //font
   --auto: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica,
@@ -91,8 +75,12 @@
 a {
   text-decoration: none;
 }
+button {
+  background-color: transparent;
+  cursor: pointer;
+}
 html {
-  font-size: 16px;
+  font-size: 10px;
 }
 
 body {

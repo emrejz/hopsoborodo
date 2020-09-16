@@ -12,7 +12,7 @@ const ShopCart: React.FC<IProps> = () => {
     <Block className="shopCartContainer">
       <Icon.ShopCart fill="var(--white)" width="20" height="20" />
       <Text className="shopCount">0</Text>
-      <Text clr="--white" wei="--w700" size="--shopCartText">
+      <Text clr="--white" wei="--w700" size="1.5rem">
         Sepetim
       </Text>
     </Block>

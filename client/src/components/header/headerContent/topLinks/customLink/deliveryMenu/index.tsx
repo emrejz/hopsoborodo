@@ -12,7 +12,7 @@ const DeliveryMenu: React.FC = () => {
     <Block className="menuContainer">
       <Block col className="content">
         <Text
-          size="--deliveryTitle"
+          size="1.5rem"
           mt="15px"
           wei="--w700"
           clr="--deliveryMenuTittle"
@@ -20,15 +20,10 @@ const DeliveryMenu: React.FC = () => {
         >
           Bugün Teslimatlı Ürünler
         </Text>
-        <Text
-          size="--deliveryDesc"
-          mt="16px"
-          wei="--w400"
-          clr="--deliveryMenuDesc"
-        >
+        <Text size="1.2rem" mt="16px" wei="--w400" clr="--deliveryMenuDesc">
           Her gün 14.00’e kadar vereceğiniz siparişler
         </Text>
-        <Text size="--deliveryDesc" clr="--deliveryMenuDesc">
+        <Text size="1.2rem" clr="--deliveryMenuDesc">
           <Text clr="--deliveryMenuTittle" wei="--w700">
             HepsiJet{" "}
           </Text>
@@ -38,7 +33,7 @@ const DeliveryMenu: React.FC = () => {
 
         <Block col pl="136px" pt="57px">
           <HepsiJet width="95px" height="21px" />
-          <Text size="--deliveryFooter" wei="--w400" clr="--deliveryMenuDesc">
+          <Text size="1.3rem" wei="--w400" clr="--deliveryMenuDesc">
             ayrıcalığı ile kapınızda!
           </Text>
         </Block>
@@ -55,7 +50,7 @@ const DeliveryMenu: React.FC = () => {
               clr="--primary"
               font="--helveticaBold"
               wei="--w700"
-              size="--deliveryTitle"
+              size="1.5rem"
             >
               Detaylar
             </Text>
