@@ -1,0 +1,51 @@
+.signInputContainer {
+  flex-direction: column;
+  position: relative;
+  width: 100%;
+  margin-top: 16px;
+  input {
+    height: 56px;
+    width: 100%;
+    outline: none;
+    background-color: var(--signInputBC);
+    border: 2px solid var(--signInputBC);
+    border-radius: 8px;
+    color: var(--signInputClr);
+    font-size: 1.6rem;
+    padding: 14px 56px 14px 14px;
+    &:hover {
+      background-color: var(--signInputHoverBC);
+    }
+    &:focus {
+      background-color: var(--white);
+      border-color: var(--orange);
+      color: var(--signInputFocusClr);
+      transition: all 250ms ease 0s;
+    }
+  }
+  svg {
+    position: absolute;
+    cursor: pointer;
+    top: 16px;
+    right: 10px;
+    & + svg {
+      right: 40px;
+    }
+  }
+}
+.errField {
+  input {
+    border: 2px solid var(--signInputErrorBorder);
+    background-color: var(--signInputErrorBC);
+    color: var(--singInputErrorClr);
+    &::placeholder {
+      color: var(--singInputErrorClr);
+    }
+  }
+}
+.sucField {
+  input {
+    background-color: var(--white);
+    color: var(--signInputFocusClr);
+  }
+}
