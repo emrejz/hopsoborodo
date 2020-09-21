@@ -1,29 +1,58 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Block from "styledComps/block";
 import Text from "styledComps/text";
 import * as Icon from "components/icons";
-import { ESignInputCase } from "interfaces/index";
+import { ESignButtonType, ESignInputCase } from "interfaces/index";
 
 import "./index.scss";
 interface IProps {
-  forPassword?: boolean;
-  placeHolderText: string;
+  kind: ESignButtonType;
+  val: string;
+  setVal: React.Dispatch<React.SetStateAction<string>>;
+  samePassword?: boolean;
 }
-const Index: React.FC<IProps> = ({ forPassword = false, placeHolderText }) => {
+const Index: React.FC<IProps> = ({
+  kind,
+  val,
+  setVal,
+  samePassword = true,
+}) => {
   const [isHide, setIsHide] = useState(true);
+  const [placeHolderText, setPlaceHolderText] = useState("");
   const [inputCase, setInputCase] = useState<ESignInputCase>(
     ESignInputCase.start
   );
-  const [val, setVal] = useState("");
+
   const _onClick = () => setIsHide((prev) => !prev);
-  const inpFunc = (e: React.FocusEvent<HTMLInputElement>) => {
-    if (val.length < 3) {
-      setInputCase(ESignInputCase.error);
-    } else {
-      setInputCase(ESignInputCase.success);
+
+  const _placeholder = () => {
+    switch (kind) {
+      case ESignButtonType.username:
+        setPlaceHolderText("Enter username");
+        break;
+      case ESignButtonType.password:
+        setPlaceHolderText("Enter password");
+        break;
+      case ESignButtonType.cPassword:
+        setPlaceHolderText("Re-enter password");
+        break;
     }
   };
 
+  useEffect(() => {
+    _placeholder();
+  }, []);
+  useEffect(() => {
+    if (val.length != 0) {
+      if (val.length < 3) {
+        setInputCase(ESignInputCase.error);
+      } else if (!samePassword) {
+        setInputCase(ESignInputCase.error);
+      } else {
+        setInputCase(ESignInputCase.success);
+      }
+    }
+  }, [val, samePassword]);
   return (
     <Block
       className={`signInputContainer ${
@@ -35,15 +64,20 @@ const Index: React.FC<IProps> = ({ forPassword = false, placeHolderText }) => {
       }`}
     >
       <input
-        type={forPassword ? (isHide ? "password" : "type") : "type"}
+        type={
+          kind !== ESignButtonType.username
+            ? isHide
+              ? "password"
+              : "type"
+            : "type"
+        }
         placeholder={placeHolderText}
         onChange={(e) => setVal(e.target.value.trim())}
         value={val}
-        onBlur={inpFunc}
       />
       {inputCase == ESignInputCase.error && <Icon.WarnInput />}
 
-      {forPassword == true ? (
+      {kind !== ESignButtonType.username ? (
         isHide ? (
           <Icon.ShowPassword onClick={_onClick} />
         ) : (
@@ -52,7 +86,9 @@ const Index: React.FC<IProps> = ({ forPassword = false, placeHolderText }) => {
       ) : null}
       {inputCase == ESignInputCase.error && (
         <Text mar="7px 0px 7px 8px" clr="--singInputErrorInfoClr" size="1.2rem">
-          Field must be min 3 characters!
+          {!samePassword
+            ? "Passwords arent same!"
+            : "Field must be min 3 characters!"}
         </Text>
       )}
     </Block>
