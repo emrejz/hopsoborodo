@@ -1,12 +1,23 @@
-import React from "react";
+import React, { useState } from "react";
 import Block from "styledComps/block";
 import SignInput from "../signInput";
+import { ESignButtonType } from "interfaces/index";
 
 const Index = () => {
+  const [username, setUsername] = useState("");
+  const [password, setPassword] = useState("");
   return (
     <Block col ai="center" bc="--primary">
-      <SignInput placeHolderText={"Username"} />
-      <SignInput forPassword={true} placeHolderText={"Password"} />
+      <SignInput
+        kind={ESignButtonType.username}
+        val={username}
+        setVal={setUsername}
+      />
+      <SignInput
+        kind={ESignButtonType.password}
+        val={password}
+        setVal={setPassword}
+      />
     </Block>
   );
 };
