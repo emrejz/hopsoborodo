@@ -9,5 +9,8 @@ module.exports = {
     if (message.includes("maximum")) {
       throw new Error("Username must be between 3 or 10 characters!");
     }
+    if (message.includes("required")) {
+      throw new Error("Username and password are required!");
+    }
   },
 };
