@@ -24,6 +24,7 @@
   .formContainer {
     flex-direction: column;
     padding: 72px;
+    width: 472px;
     border: 1px solid #e5e5e5;
     border-radius: 8px;
     .submitButton {
@@ -40,6 +41,17 @@
       margin-top: 32px;
       &:hover {
         background-color: var(--signSubmitHoverBC);
+      }
+      &:disabled {
+        cursor: not-allowed;
+        &:hover {
+          background-color: var(--orange);
+        }
+      }
+      svg {
+        width: 28px;
+        height: 28px;
+        stroke: white;
       }
     }
   }

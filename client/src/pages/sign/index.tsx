@@ -9,7 +9,9 @@ import "./index.scss";
 
 const Index = () => {
   const [isLogin, setIsLogin] = useState(true);
+
   const history = useHistory();
+
   const _onClick = () => {
     history.push("/");
   };
@@ -44,9 +46,6 @@ const Index = () => {
           </Text>
         </Block>
         {isLogin ? <SignIn /> : <SignUp />}
-        <Text as="button" className="submitButton">
-          {isLogin ? "Giriş yap" : "Üye ol"}
-        </Text>
       </Block>
     </Block>
   );
