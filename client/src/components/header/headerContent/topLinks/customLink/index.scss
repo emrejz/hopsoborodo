@@ -28,12 +28,15 @@
         background-color: var(--primary);
         transform: rotate(45deg);
       }
-      .title {
-        color: var(--primary);
-        position: relative;
-        z-index: 4;
-      }
     }
+  }
+  .linkTitle {
+    color: var(--topLink);
+    font-weight: var(--w700);
+    font-size: 1.1rem;
+  }
+  .linkWoman {
+    color: var(--topLinkOrange);
   }
 
   .overlay {

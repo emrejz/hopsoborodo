@@ -14,19 +14,19 @@ interface IProps {
 const CustomLink: React.FC<IProps> = ({ item: { title, path } }) => {
   return (
     <Block mr="10px" ml="10px" shr="0" className="customLinkContainer">
-      <Link to={path} className={title === "Bugün Teslimat" ? " delivery" : ""}>
-        <Text
-          clr={title === "Girişimci Kadınlar" ? "--topLinkOrange" : "--topLink"}
-          wei="--w700"
-          size="1.1rem"
-          className="title"
+      <Block className={title === "Bugün Teslimat" ? "delivery" : ""}>
+        <Link
+          to={path}
+          className={
+            title === "Girişimci Kadınlar" ? "linkTitle linkWoman" : "linkTitle"
+          }
         >
           {title}
           <div className="menu"></div>
-        </Text>
+        </Link>
         {title === "Bugün Teslimat" && <DeliveryMenu />}
         <div className="overlay"></div>
-      </Link>
+      </Block>
     </Block>
   );
 };
