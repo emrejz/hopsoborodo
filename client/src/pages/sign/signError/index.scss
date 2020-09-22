@@ -1,0 +1,11 @@
+.signErrorContainer {
+  width: 100%;
+  background-color: var(--signErrorBoxBC);
+  border-radius: 8px;
+  overflow: hidden;
+  .closeIcon {
+    width: 10px;
+    height: 10px;
+    cursor: pointer;
+  }
+}
