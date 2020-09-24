@@ -19,4 +19,11 @@ module.exports = {
       throw error;
     }
   },
+  activeUser: async (parent, args, { User, activeUser }) => {
+    try {
+      return activeUser;
+    } catch (error) {
+      throw error;
+    }
+  },
 };
