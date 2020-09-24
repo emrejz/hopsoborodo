@@ -2,8 +2,10 @@ import React from "react";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import Home from "pages/home";
 import Sign from "pages/sign";
+import SessionHOC from "components/sessionHOC";
 
-const Root = () => {
+interface IProps {}
+const Root: React.FC<IProps> = () => {
   return (
     <Router>
       <Switch>
@@ -17,4 +19,4 @@ const Root = () => {
     </Router>
   );
 };
-export default Root;
+export default SessionHOC(Root);
