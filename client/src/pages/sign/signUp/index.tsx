@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import { useHistory } from "react-router-dom";
 import Block from "styledComps/block";
 import Text from "styledComps/text";
@@ -8,13 +8,19 @@ import SignError from "../signError";
 import { ESignButtonType } from "interfaces/index";
 import { useMutation } from "@apollo/client";
 import { createUser } from "graphql/user";
+import { SessionContext } from "stores/session";
 
-const Index = () => {
+interface IProps {}
+
+const Index: React.FC<IProps> = () => {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [cPassword, setCPassword] = useState("");
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
+  const {
+    state: { refetch },
+  } = useContext(SessionContext);
   const history = useHistory();
   const [_createUser] = useMutation(createUser);
 
@@ -29,6 +35,7 @@ const Index = () => {
       } = await _createUser({ variables: { username, password } });
       setLoading(false);
       localStorage.setItem("token", token);
+      if (refetch) await refetch();
       history.push("/");
     } catch (error) {
       setLoading(false);

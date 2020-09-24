@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useContext } from "react";
 import { useHistory } from "react-router-dom";
 import Block from "styledComps/block";
 import Text from "styledComps/text";
@@ -8,20 +8,31 @@ import SignError from "../signError";
 import { ESignButtonType } from "interfaces/index";
 import { useLazyQuery } from "@apollo/client";
 import { loginUser } from "graphql/user";
+import { SessionContext } from "stores/session";
 
-const Index = () => {
+interface IProps {}
+
+const Index: React.FC<IProps> = ({}) => {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [err, setErr] = useState("");
+  const {
+    state: { refetch },
+  } = useContext(SessionContext);
+
   const history = useHistory();
   const [_loginUser, { data, loading, error }] = useLazyQuery(loginUser);
   useEffect(() => {
-    if (error && error.message) setErr(error.message);
-    if (loading) setErr("");
-    if (data) {
-      localStorage.setItem("token", data.loginUser.token);
-      history.push("/");
-    }
+    const graphqlFunc = async () => {
+      if (error && error.message) setErr(error.message);
+      if (loading) setErr("");
+      if (data) {
+        localStorage.setItem("token", data.loginUser.token);
+        if (refetch) await refetch();
+        history.push("/");
+      }
+    };
+    graphqlFunc();
   }, [data, error, loading]);
   const _onSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
