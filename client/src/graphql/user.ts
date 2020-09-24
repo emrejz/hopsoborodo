@@ -14,3 +14,10 @@ export const loginUser = gql`
     }
   }
 `;
+export const activeUser = gql`
+  query {
+    activeUser {
+      username
+    }
+  }
+`;
