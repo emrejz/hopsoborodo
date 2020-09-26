@@ -21,10 +21,10 @@ const Sign: React.FC<IProps> = () => {
       <Icon.User fill="var(--searchBorderNoActive)" width="20" height="20" />
       <Block col>
         <Text size="1.5rem" clr="--deliveryMenuTittle" wei="--w700">
-          {session.username ? "Hesabım" : "Giriş Yap"}
+          {session?.username ? "Hesabım" : "Giriş Yap"}
         </Text>
         <Text size="1rem" clr="--deliveryMenuTittle">
-          {session.username ? session.username : "veya üye ol"}
+          {session?.username ? session.username : "veya üye ol"}
         </Text>
       </Block>
       <Icon.DownArrow
