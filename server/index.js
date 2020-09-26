@@ -5,6 +5,7 @@ const { importSchema } = require("graphql-import");
 const resolvers = require("./graphql/resolvers");
 const mongo = require("./db/mongo");
 const User = require("./models/user");
+const Carousel = require("./models/carousel");
 const jwt = require("./helpers/jwt");
 require("dotenv").config();
 
@@ -39,6 +40,7 @@ const server = new ApolloServer({
   resolvers,
   context: ({ req }) => ({
     User,
+    Carousel,
     activeUser: req.activeUser,
   }),
 });
