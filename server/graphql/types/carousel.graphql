@@ -6,6 +6,7 @@ type CarouselElement {
   buttonText: String!
   img: String!
   backImg: String!
+  iconImg: String!
   mobileBC: String!
   path: String!
 }
@@ -22,6 +23,7 @@ input CarouselElementInput {
   buttonText: String!
   img: String!
   backImg: String!
+  iconImg: String
   mobileBC: String!
   path: String!
 }
