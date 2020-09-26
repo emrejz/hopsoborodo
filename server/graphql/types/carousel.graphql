@@ -1,0 +1,33 @@
+type CarouselElement {
+  isItemActive: Boolean!
+  mainTitle: String!
+  title: String!
+  desc: String!
+  buttonText: String!
+  img: String!
+  backImg: String!
+  mobileBC: String!
+  path: String!
+}
+
+type Carousel {
+  mainTitle: String!
+  list: [CarouselElement!]!
+}
+input CarouselElementInput {
+  isItemActive: Boolean!
+  mainTitle: String!
+  title: String!
+  desc: String!
+  buttonText: String!
+  img: String!
+  backImg: String!
+  mobileBC: String!
+  path: String!
+}
+type Mutation {
+  addCarouselElement(data: CarouselElementInput!): CarouselElement!
+}
+type Query {
+  getCarousel: [Carousel!]!
+}

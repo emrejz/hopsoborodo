@@ -2,3 +2,6 @@
 
 # import Query from "./types/user.graphql"
 # import Mutation from "./types/user.graphql"
+
+# import Query from "./types/carousel.graphql"
+# import Mutation from "./types/carousel.graphql"
