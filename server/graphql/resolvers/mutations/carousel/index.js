@@ -1,5 +1,3 @@
-const { forUser } = require("../../../../helpers/mongoError");
-
 module.exports = {
   addCarouselElement: async (parent, { data }, { Carousel }) => {
     try {
