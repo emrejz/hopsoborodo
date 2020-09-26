@@ -31,6 +31,9 @@ const Carousel = new Schema({
     type: String,
     required: true,
   },
+  iconImg: {
+    type: String,
+  },
   mobileBC: {
     type: String,
     required: true,
