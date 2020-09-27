@@ -1,9 +1,11 @@
 import React, { useEffect, useContext } from "react";
 import { useQuery } from "@apollo/client";
-import { activeUser } from "graphql/user";
+import { activeUser } from "graphqlResolvers";
 import { SessionContext } from "stores/session";
+import { IProps } from "router";
 
-const index = (Component: React.FC<any>) => (props: any) => {
+interface IPropsHOC {}
+const index = (Component: React.FC<IProps>) => (props: IPropsHOC) => {
   const { data, loading, error, client } = useQuery(activeUser);
   const { dispatch } = useContext(SessionContext);
   useEffect(() => {
@@ -12,11 +14,7 @@ const index = (Component: React.FC<any>) => (props: any) => {
     if (error) dispatch.setError(error.message);
     if (client) dispatch.setRefetch(client.reFetchObservableQueries);
   }, [data, loading, error, client]);
-  return (
-    <>
-      <Component {...props} />
-    </>
-  );
+  return <Component {...props} />;
 };
 
 export default index;
