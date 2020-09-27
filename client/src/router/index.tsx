@@ -4,8 +4,8 @@ import Home from "pages/home";
 import Sign from "pages/sign";
 import SessionHOC from "components/sessionHOC";
 
-interface IProps {}
-const Root: React.FC<IProps> = () => {
+export interface IProps {}
+const Root: React.FC<IProps> = (props) => {
   return (
     <Router>
       <Switch>
