@@ -7,7 +7,7 @@ import SignInput from "../signInput";
 import SignError from "../signError";
 import { ESignButtonType } from "interfaces/index";
 import { useMutation } from "@apollo/client";
-import { createUser } from "graphql/user";
+import { createUser } from "graphqlResolvers";
 import { SessionContext } from "stores/session";
 
 interface IProps {}

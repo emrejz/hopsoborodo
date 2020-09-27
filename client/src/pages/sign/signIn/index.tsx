@@ -7,7 +7,7 @@ import SignInput from "../signInput";
 import SignError from "../signError";
 import { ESignButtonType } from "interfaces/index";
 import { useLazyQuery } from "@apollo/client";
-import { loginUser } from "graphql/user";
+import { loginUser } from "graphqlResolvers";
 import { SessionContext } from "stores/session";
 
 interface IProps {}
