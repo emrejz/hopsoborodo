@@ -1,14 +1,19 @@
-import React from "react";
+import React, { useContext } from "react";
 import Layout from "components/layout";
+import Carousel from "./carousel";
+import { SessionContext } from "stores/session";
 
 import "./index.scss";
 
-function Home() {
+interface IProps {}
+const Home: React.FC<IProps> = () => {
+  const { state } = useContext(SessionContext);
+  console.log(state);
   return (
     <Layout>
-      <div>emre</div>
+      <Carousel />
     </Layout>
   );
-}
+};
 
 export default Home;
