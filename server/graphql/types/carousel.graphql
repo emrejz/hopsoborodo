@@ -6,7 +6,7 @@ type CarouselElement {
   buttonText: String!
   img: String!
   backImg: String!
-  iconImg: String!
+  iconImg: String
   mobileBC: String!
   path: String!
 }
