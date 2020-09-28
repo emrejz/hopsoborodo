@@ -1,16 +1,21 @@
 import { gql } from "@apollo/client";
 
-// export const loginUser = gql`
-//   query($username: String!, $password: String!) {
-//     loginUser(data: { username: $username, password: $password }) {
-//       token
-//     }
-//   }
-// `;
-// export const activeUser = gql`
-//   query {
-//     activeUser {
-//       username
-//     }
-//   }
-// `;
+export const getCarousel = gql`
+  query {
+    getCarousel {
+      mainTitle
+      list {
+        isItemActive
+        mainTitle
+        title
+        desc
+        buttonText
+        img
+        backImg
+        iconImg
+        mobileBC
+        path
+      }
+    }
+  }
+`;
