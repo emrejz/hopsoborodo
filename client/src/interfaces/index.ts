@@ -1,4 +1,6 @@
 export * from "./store/session";
+export * from "./graphql/carousel";
+
 export interface ITopLinkItem {
   title: string;
   path: string;
