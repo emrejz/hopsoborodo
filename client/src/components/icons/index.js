@@ -1,3 +1,4 @@
+export { default as Arrow } from './Arrow'
 export { default as Close } from './Close'
 export { default as DownArrow } from './DownArrow'
 export { default as HepsiJet } from './HepsiJet'
