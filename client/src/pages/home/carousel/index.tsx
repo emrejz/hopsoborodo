@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import Block from "styledComps/block";
 import Header from "./header";
 import Content from "./content";
+import Slick from "./slick";
 import { useQuery } from "@apollo/client";
 import { getCarousel } from "graphqlResolvers";
 import { ICarouselQuery } from "interfaces";
@@ -21,7 +22,10 @@ export const Index = () => {
       if (getCarousel) {
         getCarousel.forEach((element) => {
           const { list, mainTitle } = element;
-          if (list.length > 0) tempArr.push(mainTitle);
+          if (list.length > 0) {
+            tempArr.push(mainTitle);
+            list.forEach((elem) => {});
+          }
         });
       }
       setHeaderList([...tempArr]);
@@ -41,6 +45,14 @@ export const Index = () => {
         headerList={headerList}
       />
       {data?.getCarousel && <Content data={data.getCarousel[0].list[0]} />}
+      {data?.getCarousel && (
+        <Slick
+          data={data.getCarousel}
+          activeTab={activeTab}
+          setActiveTab={setActiveTab}
+          headerList={headerList}
+        />
+      )}
     </Block>
   );
 };
