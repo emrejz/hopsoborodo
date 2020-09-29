@@ -1,0 +1,53 @@
+.carouselSlickContainer {
+  z-index: 5;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 32px;
+  margin-top: 16px;
+  .item {
+    margin-left: 5px;
+    margin-right: 5px;
+    width: 56px;
+    height: 40px;
+    border-radius: 8px;
+    overflow: hidden;
+    img {
+      width: 100%;
+    }
+  }
+  svg {
+    min-width: 15px;
+    max-width: 15px;
+    min-height: 15px;
+    max-height: 15px;
+    fill: var(--carouselHeaderItemClr);
+  }
+  .arrowItem {
+    justify-content: center;
+    align-items: center;
+    height: 36px;
+    opacity: 0.72;
+    border: 2px solid var(--carouselHeaderItemClr);
+    border-radius: 28px;
+    cursor: pointer;
+    transition: 1s ease;
+    margin: 0 16px;
+    padding: 0 20px;
+    span {
+      width: 0px;
+      overflow: hidden;
+      transition: 0.6s ease;
+    }
+    &:hover {
+      opacity: 1;
+      span {
+        width: 100%;
+      }
+    }
+  }
+  .rightArrowItem {
+    svg {
+      transform: rotate(180deg);
+    }
+  }
+}
