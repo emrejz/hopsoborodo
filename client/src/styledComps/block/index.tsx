@@ -40,7 +40,7 @@ const Block: StyledComponent<"div", any, Props, never> = styled.div<Props>(
     ${props.wid ? `width:${props.wid}` : ""};  
     ${props.size ? `font-size:var(${props.size})` : ""};    
     ${props.font ? `font-family:var(${props.font})` : ""};    
-    ${props.clr ? `font-color:var(${props.clr})` : ""};    
+    ${props.clr ? `color:var(${props.clr})` : ""};    
     ${props.wei ? `font-weight:var(${props.wei})` : ""};    
     ${props.mar ? `margin:${props.mar}` : ""}; 
     ${props.pad ? `padding:${props.pad}` : ""};
