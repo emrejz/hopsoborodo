@@ -1,0 +1,39 @@
+.carouselContentContainer {
+  background-color: var(--primary);
+  justify-content: space-between;
+  z-index: 5;
+  width: 80%;
+  min-height: 386px;
+  margin: auto;
+  .info {
+    padding: 48px;
+    padding-top: 56px;
+    color: var(--carouselHeaderItemClr);
+    .title {
+      font-size: 2.4rem;
+      margin-top: 8px;
+    }
+    .desc {
+      font-size: 3.2rem;
+      margin-top: 8px;
+      font-weight: var(--w600);
+    }
+  }
+  button {
+    border-radius: 20px;
+    margin-top: 24px;
+    width: fit-content;
+    span {
+      font-size: 1.4rem;
+      font-weight: var(--w600);
+      padding: 12px 24px;
+      color: var(--white);
+    }
+  }
+  img {
+    width: 100%;
+    cursor: pointer;
+    border-radius: 8px;
+    padding: 4px;
+  }
+}
