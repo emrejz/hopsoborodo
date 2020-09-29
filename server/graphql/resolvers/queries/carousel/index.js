@@ -30,6 +30,11 @@ module.exports = {
         {
           $project: { _id: 0 },
         },
+        {
+          $sort: {
+            mainTitle: 1,
+          },
+        },
       ]);
     } catch (error) {
       throw error;
