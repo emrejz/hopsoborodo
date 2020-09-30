@@ -38,6 +38,10 @@ const Carousel = new Schema({
     type: String,
     required: true,
   },
+  isDark: {
+    type: Boolean,
+    required: true,
+  },
   path: {
     type: String,
     required: true,
