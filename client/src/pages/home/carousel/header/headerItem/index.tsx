@@ -1,21 +1,22 @@
-import React from "react";
+import React, { useContext } from "react";
 import Block from "styledComps/block";
 import Text from "styledComps/text";
+import { CarouselContext } from "../../store";
 
 import "./index.scss";
 
 interface IProps {
   mainTitle: string;
-  activeTab: string;
-  setActiveTab: React.Dispatch<React.SetStateAction<string>>;
 }
-const index: React.FC<IProps> = ({ mainTitle, activeTab, setActiveTab }) => {
-  console.log(mainTitle);
-  console.log(activeTab);
-  console.log(activeTab === mainTitle);
+const Index: React.FC<IProps> = ({ mainTitle }) => {
+  const {
+    state: { activeTab },
+    dispatch,
+  } = useContext(CarouselContext);
+
   return (
     <Block
-      onClick={() => setActiveTab(mainTitle)}
+      onClick={() => dispatch.setActiveTab(mainTitle)}
       className="carouselHeaderItemContainer"
     >
       <Block
@@ -29,4 +30,4 @@ const index: React.FC<IProps> = ({ mainTitle, activeTab, setActiveTab }) => {
   );
 };
 
-export default index;
+export default Index;
