@@ -14,6 +14,7 @@ export const getCarousel = gql`
         backImg
         iconImg
         mobileBC
+        isDark
         path
       }
     }
