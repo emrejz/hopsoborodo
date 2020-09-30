@@ -7,14 +7,22 @@
   .item {
     margin-left: 5px;
     margin-right: 5px;
-    width: 56px;
-    height: 40px;
+    min-width: 56px;
+    max-width: 56px;
+    min-height: 40px;
+    max-height: 40px;
     border-radius: 8px;
     overflow: hidden;
+
     img {
+      align-self: stretch;
       width: 100%;
     }
   }
+  .item.active {
+    border: 2px solid var(--white);
+  }
+
   svg {
     min-width: 15px;
     max-width: 15px;
@@ -22,6 +30,7 @@
     max-height: 15px;
     fill: var(--carouselHeaderItemClr);
   }
+
   .arrowItem {
     justify-content: center;
     align-items: center;
@@ -37,6 +46,7 @@
       width: 0px;
       overflow: hidden;
       transition: 0.6s ease;
+      white-space: nowrap;
     }
     &:hover {
       opacity: 1;
@@ -48,6 +58,22 @@
   .rightArrowItem {
     svg {
       transform: rotate(180deg);
+    }
+  }
+}
+.isDarkCarousel {
+  .carouselSlickContainer {
+    svg {
+      fill: var(--white);
+    }
+    .arrowItem {
+      border: 2px solid var(--white);
+      span {
+        color: var(--white);
+      }
+    }
+    .item.active {
+      border: 2px solid var(--white);
     }
   }
 }

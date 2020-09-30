@@ -1,77 +1,90 @@
-import React from "react";
+import React, { useContext } from "react";
 import Block from "styledComps/block";
 import Text from "styledComps/text";
-import { ICarousel } from "interfaces";
+import { ICarouselListElement, ICarouselContext } from "interfaces";
 import * as Icon from "components/icons";
+import { CarouselContext } from "../store";
 
 import "./index.scss";
 
 interface IProps {
-  activeTab: string;
-  setActiveTab: React.Dispatch<React.SetStateAction<string>>;
-  data: Array<ICarousel>;
-  headerList: Array<string>;
+  counter: React.MutableRefObject<number>;
 }
-const Index: React.FC<IProps> = ({
-  data,
-  activeTab,
-  headerList,
-  setActiveTab,
-}) => {
+const Index: React.FC<IProps> = ({ counter }) => {
+  const {
+    state: { data, activeTab, tabList, activeItem },
+    dispatch,
+  } = useContext<ICarouselContext>(CarouselContext);
   const arrowTitle = (isLeft: boolean) => {
-    const index = headerList.indexOf(activeTab);
-    const length = headerList.length - 1;
+    const index = tabList.indexOf(activeTab);
+    const length = tabList.length - 1;
 
     if (isLeft) {
-      if (index !== 0) return headerList[index - 1];
-      else return headerList[length];
+      if (index !== 0) return tabList[index - 1];
+      else return tabList[length];
     } else {
-      if (index !== length) return headerList[index + 1];
-      else return headerList[0];
+      if (index !== length) return tabList[index + 1];
+      else return tabList[0];
     }
   };
   const _onClick = (isLeft: boolean) => {
-    const index = headerList.indexOf(activeTab);
-    const length = headerList.length - 1;
+    const index = tabList.indexOf(activeTab);
+    const length = tabList.length - 1;
     if (isLeft) {
-      if (index !== 0) return setActiveTab(headerList[index - 1]);
-      else return setActiveTab(headerList[length]);
+      if (index !== 0) return dispatch.setActiveTab(tabList[index - 1]);
+      else return dispatch.setActiveTab(tabList[length]);
     } else {
-      if (index !== length) return setActiveTab(headerList[index + 1]);
-      else return setActiveTab(headerList[0]);
+      if (index !== length) return dispatch.setActiveTab(tabList[index + 1]);
+      else return dispatch.setActiveTab(tabList[0]);
     }
+  };
+  const selcetActiveItem = (item: ICarouselListElement, index: number) => {
+    dispatch.setActiveItem(item);
+    counter.current = index;
   };
   return (
     <Block className="carouselSlickContainer">
-      <Block
-        as="button"
-        onClick={() => _onClick(true)}
-        className="arrowItem leftArrowItem"
-      >
-        <Icon.Arrow />
-        <Text size="1.4rem" wei="--w600" clr="--carouselHeaderItemClr">
-          {arrowTitle(true)}
-        </Text>
+      <Block wid="100%" jc="flex-end">
+        <Block
+          as="button"
+          onClick={() => _onClick(true)}
+          className="arrowItem leftArrowItem"
+        >
+          <Icon.Arrow />
+          <Text size="1.4rem" wei="--w600" clr="--carouselHeaderItemClr">
+            {arrowTitle(true)}
+          </Text>
+        </Block>
       </Block>
-      {data.map((item) => {
-        if (item.mainTitle === activeTab) {
-          return item.list.map((item, index) => (
-            <Block as="button" key={index} className="item">
-              <img src={item.iconImg} alt="icon" />
-            </Block>
-          ));
-        }
-      })}
-      <Block
-        as="button"
-        className="arrowItem rightArrowItem"
-        onClick={() => _onClick(false)}
-      >
-        <Text size="1.4rem" wei="--w600" clr="--carouselHeaderItemClr">
-          {arrowTitle(false)}
-        </Text>
+      {data &&
+        data.map((item) => {
+          if (item.mainTitle === activeTab) {
+            return item.list.map((item, index) => (
+              <Block
+                as="button"
+                key={index}
+                className={
+                  activeItem?.img === item.img ? "item active" : "item"
+                }
+                onClick={() => selcetActiveItem(item, index)}
+              >
+                <img src={item.iconImg ? item.iconImg : item.img} alt="icon" />
+              </Block>
+            ));
+          }
+        })}
+      <Block wid="100%">
+        <Block
+          as="button"
+          className="arrowItem rightArrowItem"
+          onClick={() => _onClick(false)}
+        >
+          <Text size="1.4rem" wei="--w600" clr="--carouselHeaderItemClr">
+            {arrowTitle(false)}
+          </Text>
 
-        <Icon.Arrow />
+          <Icon.Arrow />
+        </Block>
       </Block>
     </Block>
   );
