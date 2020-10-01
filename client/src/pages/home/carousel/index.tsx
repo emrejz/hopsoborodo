@@ -3,6 +3,7 @@ import Block from "styledComps/block";
 import Header from "./header";
 import Content from "./content";
 import Slick from "./slick";
+import CompStatus from "components/compStatus";
 import { useQuery } from "@apollo/client";
 import { getCarousel } from "graphqlResolvers";
 import { ICarouselQuery, ICarouselContext } from "interfaces";
@@ -56,19 +57,29 @@ export const Index: React.FC<IProps> = () => {
   }, [activeTab]);
 
   return (
-    <Block
-      col
-      className={
-        activeItem?.isDark
-          ? "carouselContainer isDarkCarousel"
-          : "carouselContainer"
-      }
-    >
-      <img className="backdropImg" src={activeItem?.backImg} alt="backdrop" />
-      <Header />
-      {activeItem && <Content data={activeItem} />}
-      <Slick counter={counter} />
-    </Block>
+    <>
+      {loading || error ? (
+        <CompStatus loading={loading} error={error?.message} />
+      ) : (
+        <Block
+          col
+          className={
+            activeItem?.isDark
+              ? "carouselContainer isDarkCarousel"
+              : "carouselContainer"
+          }
+        >
+          <img
+            className="backdropImg"
+            src={activeItem?.backImg}
+            alt="backdrop"
+          />
+          <Header />
+          {activeItem && <Content data={activeItem} />}
+          <Slick counter={counter} />
+        </Block>
+      )}
+    </>
   );
 };
 
