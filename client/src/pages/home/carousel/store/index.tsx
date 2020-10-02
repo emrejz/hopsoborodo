@@ -4,12 +4,13 @@ import { reducer } from "./reducer";
 import { actions } from "./actions";
 
 export const initialState: ICarouselState = {
-  data: null,
+  data: [],
   activeTab: "",
   tabList: [],
   activeItem: null,
   loading: false,
   error: "",
+  selectedList: [],
 };
 
 export const CarouselContext = createContext({} as ICarouselContext);

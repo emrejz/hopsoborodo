@@ -39,6 +39,8 @@ export const reducer = (
       return {
         ...state,
         activeTab: (action as ICarouselActiveTabAction).payload.activeTab,
+        selectedList:
+          state.data[state.tabList.indexOf(action.payload.activeTab)]?.list,
       };
     case ECarouselActionTypes.activeItem:
       return {
