@@ -12,9 +12,6 @@ const CompStatus: React.FC<IProps> = ({ error, loading }) => {
   return (
     <Block
       as="nav"
-      pad="24px"
-      jc="center"
-      ai="center"
       bc={error ? "--compStatusErrorBC" : "--primary"}
       className="compStatusContainer"
     >
