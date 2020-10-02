@@ -7,10 +7,8 @@ import { CarouselContext } from "../store";
 
 import "./index.scss";
 
-interface IProps {
-  counter: React.MutableRefObject<number>;
-}
-const Index: React.FC<IProps> = ({ counter }) => {
+interface IProps {}
+const Index: React.FC<IProps> = () => {
   const {
     state: { data, activeTab, tabList, activeItem },
     dispatch,
@@ -38,10 +36,10 @@ const Index: React.FC<IProps> = ({ counter }) => {
       else return dispatch.setActiveTab(tabList[0]);
     }
   };
-  const selcetActiveItem = (item: ICarouselListElement, index: number) => {
+  const selcetActiveItem = (item: ICarouselListElement) => {
     dispatch.setActiveItem(item);
-    counter.current = index;
   };
+  console.log("SLİCK");
   return (
     <Block className="carouselSlickContainer">
       <Block wid="100%" jc="flex-end">
@@ -66,7 +64,7 @@ const Index: React.FC<IProps> = ({ counter }) => {
                 className={
                   activeItem?.img === item.img ? "item active" : "item"
                 }
-                onClick={() => selcetActiveItem(item, index)}
+                onClick={() => selcetActiveItem(item)}
               >
                 <img src={item.iconImg ? item.iconImg : item.img} alt="icon" />
               </Block>
@@ -90,4 +88,4 @@ const Index: React.FC<IProps> = ({ counter }) => {
   );
 };
 
-export default Index;
+export default React.memo(Index);
