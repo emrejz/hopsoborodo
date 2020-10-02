@@ -1,9 +1,21 @@
+@import "constants/mediaVars.scss";
+
 .carouselContainer {
   position: relative;
-
+  & > div {
+    border-radius: 8px;
+  }
   .backdropImg {
     width: 100%;
     height: 100%;
     position: absolute;
+  }
+}
+
+@media screen and (max-width: $mobile) {
+  .carouselContainer {
+    .backdropImg {
+      display: none;
+    }
   }
 }
