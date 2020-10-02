@@ -1,3 +1,5 @@
+@import "constants/mediaVars.scss";
+
 .carouselHeaderItemContainer {
   cursor: pointer;
   .defaultTab {
@@ -8,10 +10,14 @@
     background-color: transparent;
     z-index: 4;
     position: relative;
+    align-items: center;
+    justify-content: center;
+    white-space: nowrap;
     span {
       color: var(--carouselHeaderItemClr);
       font-size: 1.4rem;
       font-weight: var(--w600);
+      text-align: center;
     }
   }
   .activeTab {
@@ -32,10 +38,30 @@
     }
   }
 }
-.isDarkCarousel {
+
+.carouselDarkBackdrop {
   .carouselHeaderItemContainer {
-    span {
+    .defaultTab span {
       color: var(--white);
+    }
+  }
+}
+
+@media screen and (max-width: $mobile) {
+  .carouselHeaderItemContainer {
+    .activeTab {
+      span {
+        font-size: 2rem !important;
+        font-weight: var(--w600) !important;
+        color: var(--carouselHeaderItemClr) !important;
+      }
+    }
+    .defaultTab {
+      span {
+        font-size: 1.4rem;
+        font-weight: var(--w600);
+        color: var(--carouselHeaderItemDeActiveMobileClr);
+      }
     }
   }
 }

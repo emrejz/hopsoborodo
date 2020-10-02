@@ -1,0 +1,16 @@
+@import "constants/mediaVars.scss";
+.carouselHeaderContainer {
+  flex: 1;
+  padding-top: 18px;
+  padding-bottom: 13px;
+  justify-content: center;
+  overflow-x: auto;
+}
+
+@media screen and (max-width: $mobile) {
+  .carouselHeaderContainer {
+    padding-top: 6px;
+    padding-bottom: 6px;
+    justify-content: space-between;
+  }
+}
