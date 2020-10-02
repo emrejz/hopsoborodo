@@ -19,12 +19,13 @@ export interface ICarouselQuery {
   getCarousel: Array<ICarousel>;
 }
 export interface ICarouselState {
-  data: Array<ICarousel> | null;
+  data: Array<ICarousel>;
   loading: boolean;
   error: string;
   activeTab: string;
   tabList: Array<string>;
   activeItem: ICarouselListElement | null;
+  selectedList: Array<ICarouselListElement>;
 }
 export interface ICarouselLoadingAction {
   type: ECarouselActionTypes.loading;
@@ -62,6 +63,7 @@ export interface ICarouselActiveItemAction {
     activeItem: ICarouselListElement;
   };
 }
+
 export type TCarouselAction =
   | ICarouselLoadingAction
   | ICarouselSuccessAction
