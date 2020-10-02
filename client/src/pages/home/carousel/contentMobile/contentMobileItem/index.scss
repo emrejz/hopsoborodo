@@ -1,0 +1,29 @@
+.carouselContentMobileItemContainer {
+  background-color: var(--primary);
+  flex-direction: column;
+  z-index: 5;
+  min-width: 90%;
+  height: fit-content;
+  margin: 0 4px;
+  border-radius: 8px;
+  overflow: hidden;
+  .info {
+    font-size: 1.6rem;
+    color: var(--white);
+    font-weight: var(--w600);
+    white-space: nowrap;
+
+    .title {
+      margin: 8px;
+      margin-bottom: 0;
+    }
+    .desc {
+      margin: 8px;
+    }
+  }
+
+  img {
+    width: 100%;
+    cursor: pointer;
+  }
+}

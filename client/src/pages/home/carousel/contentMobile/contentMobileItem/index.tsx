@@ -10,25 +10,16 @@ interface IProps {
   data: ICarouselListElement;
 }
 const Index: React.FC<IProps> = ({
-  data: { title, desc, img, buttonText, mobileBC, path },
+  data: { title, desc, img, mobileBC, path },
 }) => {
   const history = useHistory();
   const _onClick = () => history.push(path);
   return (
-    <Block className="carouselContentContainer">
-      <Block col className="info">
+    <Block className="carouselContentMobileItemContainer" onClick={_onClick}>
+      <img src={img} alt={title} onClick={_onClick} />
+      <Block col style={{ backgroundColor: mobileBC }} className="info">
         <Text className="title">{title}</Text>
         <Text className="desc">{desc}</Text>
-        <Block
-          as="button"
-          onClick={_onClick}
-          style={{ backgroundColor: mobileBC }}
-        >
-          <Text>{buttonText}</Text>
-        </Block>
-      </Block>
-      <Block>
-        <img src={img} alt={title} onClick={_onClick} />
       </Block>
     </Block>
   );

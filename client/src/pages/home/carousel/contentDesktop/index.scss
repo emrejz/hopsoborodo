@@ -5,6 +5,7 @@
   width: 80%;
   min-height: 386px;
   margin: auto;
+
   .info {
     padding: 48px;
     padding-top: 56px;
@@ -35,5 +36,10 @@
     cursor: pointer;
     border-radius: 8px;
     padding: 4px;
+  }
+}
+.mobileMode {
+  .carouselContentContainer {
+    display: none;
   }
 }
