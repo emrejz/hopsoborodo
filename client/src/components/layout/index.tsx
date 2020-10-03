@@ -1,6 +1,5 @@
 import React, { ReactElement } from "react";
 import HeaderContent from "components/header/headerContent";
-import CompStatus from "components/compStatus";
 import ColorfulStick from "components/header/colorfulStick";
 import QuickMenu from "components/header/quickMenu";
 import Footer from "components/footer";
