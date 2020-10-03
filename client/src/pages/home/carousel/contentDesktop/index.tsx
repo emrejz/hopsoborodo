@@ -1,7 +1,6 @@
 import React, { useEffect, useRef, useContext } from "react";
-import { useHistory } from "react-router-dom";
-import Block from "styledComps/block";
-import Text from "styledComps/text";
+import { Link } from "react-router-dom";
+import { Block, Text } from "styledComps";
 import { CarouselContext } from "../store";
 import { ICarouselContext, ICarouselListElement } from "interfaces";
 
@@ -9,16 +8,15 @@ import "./index.scss";
 
 interface IProps {}
 const Index: React.FC<IProps> = () => {
-  const history = useHistory();
   const counter = useRef(0);
   const refSelectedList = useRef<Array<any>>([]);
-  const _onClick = (path: string) => history.push(path);
   const {
     state: { activeItem, selectedList },
     dispatch,
   } = useContext<ICarouselContext>(CarouselContext);
-  let item: ICarouselListElement;
   useEffect(() => {
+    let item: ICarouselListElement;
+
     if (refSelectedList.current !== selectedList) {
       refSelectedList.current = selectedList;
       counter.current = 0;
@@ -47,8 +45,8 @@ const Index: React.FC<IProps> = () => {
             <Text className="title">{activeItem.title}</Text>
             <Text className="desc">{activeItem.desc}</Text>
             <Block
-              as="button"
-              onClick={() => _onClick(activeItem.path)}
+              as={Link}
+              to={activeItem.path}
               style={{
                 backgroundColor: activeItem.mobileBC,
               }}
@@ -56,12 +54,8 @@ const Index: React.FC<IProps> = () => {
               <Text>{activeItem.buttonText}</Text>
             </Block>
           </Block>
-          <Block>
-            <img
-              src={activeItem.img}
-              alt={activeItem.title}
-              onClick={() => _onClick(activeItem.path)}
-            />
+          <Block as={Link} to={activeItem.path}>
+            <img src={activeItem.img} alt={activeItem.title} />
           </Block>
         </Block>
       )}
