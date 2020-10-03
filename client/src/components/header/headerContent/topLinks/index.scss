@@ -1,0 +1,6 @@
+@import "constants/mediaVars.scss";
+@media screen and (max-width: $mobile) {
+  .topLinksContainer {
+    display: none !important;
+  }
+}
