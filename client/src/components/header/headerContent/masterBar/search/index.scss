@@ -54,3 +54,10 @@
     border-bottom-right-radius: 4px;
   }
 }
+@media screen and (max-width: 1219px) {
+  .searchContainer {
+    order: 3;
+    width: 100% !important;
+    margin-top: 16px;
+  }
+}
