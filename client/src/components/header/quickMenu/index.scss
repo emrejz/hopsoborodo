@@ -1,20 +1,43 @@
-.quickMenuItem {
-  align-items: center;
+.quickMenuContainer {
+  background-color: var(--quickMenu);
+  justify-content: center;
 
-  span {
-    padding-left: 22px;
-    padding-right: 22px;
-    font-size: 1.4rem;
-    font-weight: var(--w600);
-    letter-spacing: -0.28px;
-    color: var(--quickMenuItemClr);
-    text-align: center;
-    cursor: default;
+  & > div {
+    max-width: 1200px;
+    min-height: 56px;
+    overflow-x: auto;
   }
-  &:hover {
-    background-color: var(--white);
+  .quickMenuItem {
+    align-items: center;
+
     span {
-      color: var(--orange);
+      height: 56px;
+      padding: 6px 22px;
+      font-size: 1.4rem;
+      font-weight: var(--w600);
+      letter-spacing: -0.28px;
+      color: var(--quickMenuItemClr);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      cursor: default;
+    }
+    &:hover {
+      background-color: var(--white);
+      span {
+        color: var(--orange);
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 1100px) {
+  .quickMenuContainer {
+    .quickMenuItem {
+      span {
+        white-space: nowrap;
+      }
     }
   }
 }
