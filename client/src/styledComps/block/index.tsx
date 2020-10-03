@@ -24,7 +24,9 @@ interface Props {
   mt?: string;
   mb?: string;
 }
-const Block: StyledComponent<"div", any, Props, never> = styled.div<Props>(
+export const Block: StyledComponent<"div", any, Props, never> = styled.div<
+  Props
+>(
   (props) =>
     `
     display: flex;
@@ -54,4 +56,3 @@ const Block: StyledComponent<"div", any, Props, never> = styled.div<Props>(
     ${props.mb ? `margin-bottom:${props.mb}` : ""}; 
 `
 );
-export default Block;

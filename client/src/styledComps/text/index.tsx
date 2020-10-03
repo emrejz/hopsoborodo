@@ -20,7 +20,9 @@ interface Props {
   mt?: string;
   mb?: string;
 }
-const Text: StyledComponent<"span", any, Props, never> = styled.span<Props>(
+export const Text: StyledComponent<"span", any, Props, never> = styled.span<
+  Props
+>(
   (props) =>
     `
     display:${props.block ? "block" : ""};
