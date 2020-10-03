@@ -1,7 +1,6 @@
 import React, { useState, useContext } from "react";
 import { useHistory } from "react-router-dom";
-import Block from "styledComps/block";
-import Text from "styledComps/text";
+import { Block, Text } from "styledComps";
 import * as Icon from "components/icons";
 import SignInput from "../signInput";
 import SignError from "../signError";

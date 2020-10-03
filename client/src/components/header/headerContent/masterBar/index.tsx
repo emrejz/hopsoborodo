@@ -1,5 +1,5 @@
 import React from "react";
-import Block from "styledComps/block";
+import { Block } from "styledComps";
 import Brand from "./brand";
 import Search from "./search";
 import Account from "./account";

@@ -1,5 +1,5 @@
 import React from "react";
-import Block from "styledComps/block";
+import { Block } from "styledComps";
 import ShopCart from "./shopCart";
 import Sign from "./sign";
 

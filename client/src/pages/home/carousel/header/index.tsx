@@ -1,5 +1,5 @@
 import React, { useContext } from "react";
-import Block from "styledComps/block";
+import { Block } from "styledComps";
 import { CarouselContext } from "../store";
 import HeaderItem from "./headerItem";
 

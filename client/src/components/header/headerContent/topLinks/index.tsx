@@ -1,5 +1,5 @@
 import React from "react";
-import Block from "styledComps/block";
+import { Block } from "styledComps";
 import CustomLink from "./customLink";
 import { topLinks } from "constants/index";
 

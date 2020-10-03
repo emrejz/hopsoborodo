@@ -1,7 +1,5 @@
 import React, { useState, useRef } from "react";
-import { Link } from "react-router-dom";
-import Block from "styledComps/block";
-import Text from "styledComps/text";
+import { Block, Text } from "styledComps";
 import * as Icon from "components/icons";
 
 import "./index.scss";

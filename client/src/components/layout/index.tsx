@@ -3,7 +3,7 @@ import HeaderContent from "components/header/headerContent";
 import ColorfulStick from "components/header/colorfulStick";
 import QuickMenu from "components/header/quickMenu";
 import Footer from "components/footer";
-import Block from "styledComps/block";
+import { Block } from "styledComps";
 
 interface IProps {
   children?: React.FC | ReactElement;

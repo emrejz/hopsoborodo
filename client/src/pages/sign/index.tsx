@@ -1,30 +1,18 @@
 import React, { useState } from "react";
-import Block from "styledComps/block";
-import Text from "styledComps/text";
+import { Block, Text } from "styledComps";
 import SignIn from "./signIn";
 import SignUp from "./signUp";
-import { useHistory } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 import "./index.scss";
 
 const Index = () => {
   const [isLogin, setIsLogin] = useState(true);
 
-  const history = useHistory();
-
-  const _onClick = () => {
-    history.push("/");
-  };
   return (
     <Block col ai="center" bc="--primary" className="signPageContainer">
       <Block flex="1" bc="primary" pt="34px" pb="56px" jc="center">
-        <Text
-          as="button"
-          clr="--orange"
-          wei="--w700"
-          size="2.8rem"
-          onClick={_onClick}
-        >
+        <Text as={Link} to="/" clr="--orange" wei="--w700" size="2.8rem">
           hopsoborodo
         </Text>
       </Block>

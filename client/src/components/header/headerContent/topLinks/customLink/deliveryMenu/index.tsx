@@ -1,6 +1,5 @@
 import React from "react";
-import Block from "styledComps/block";
-import Text from "styledComps/text";
+import { Block, Text } from "styledComps";
 import smilingPlane from "assets/images/smiling-plane.png";
 import HepsiJet from "components/icons/HepsiJet";
 import { Link } from "react-router-dom";

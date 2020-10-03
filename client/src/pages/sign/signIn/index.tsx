@@ -1,7 +1,6 @@
 import React, { useEffect, useState, useContext } from "react";
 import { useHistory } from "react-router-dom";
-import Block from "styledComps/block";
-import Text from "styledComps/text";
+import { Block, Text } from "styledComps";
 import * as Icon from "components/icons";
 import SignInput from "../signInput";
 import SignError from "../signError";
@@ -12,7 +11,7 @@ import { SessionContext } from "stores/session";
 
 interface IProps {}
 
-const Index: React.FC<IProps> = ({}) => {
+const Index: React.FC<IProps> = () => {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [err, setErr] = useState("");
@@ -33,7 +32,7 @@ const Index: React.FC<IProps> = ({}) => {
       }
     };
     graphqlFunc();
-  }, [data, error, loading]);
+  }, [data, error, loading, refetch, history]);
   const _onSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     _loginUser({ variables: { username, password } });

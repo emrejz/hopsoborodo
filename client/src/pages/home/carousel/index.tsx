@@ -1,5 +1,5 @@
 import React, { useEffect, useContext } from "react";
-import Block from "styledComps/block";
+import { Block } from "styledComps";
 import Header from "./header";
 import ContentDesktop from "./contentDesktop";
 import ContentMobile from "./contentMobile";

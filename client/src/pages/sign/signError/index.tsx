@@ -1,6 +1,5 @@
 import React from "react";
-import Block from "styledComps/block";
-import Text from "styledComps/text";
+import { Block, Text } from "styledComps";
 import * as Icon from "components/icons";
 
 import "./index.scss";

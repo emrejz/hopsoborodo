@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from "react";
-import Block from "styledComps/block";
-import Text from "styledComps/text";
+import { Block, Text } from "styledComps";
 import * as Icon from "components/icons";
 import { ESignButtonType, ESignInputCase } from "interfaces/index";
 
@@ -25,7 +24,7 @@ const Index: React.FC<IProps> = ({
 
   const _onClick = () => setIsHide((prev) => !prev);
 
-  const _placeholder = () => {
+  useEffect(() => {
     switch (kind) {
       case ESignButtonType.username:
         setPlaceHolderText("Enter username");
@@ -37,13 +36,9 @@ const Index: React.FC<IProps> = ({
         setPlaceHolderText("Re-enter password");
         break;
     }
-  };
-
+  }, [kind]);
   useEffect(() => {
-    _placeholder();
-  }, []);
-  useEffect(() => {
-    if (val.length != 0) {
+    if (val.length !== 0) {
       if (val.length < 3) {
         setInputCase(ESignInputCase.error);
       } else if (!samePassword) {
@@ -56,9 +51,9 @@ const Index: React.FC<IProps> = ({
   return (
     <Block
       className={`signInputContainer ${
-        inputCase == ESignInputCase.error
+        inputCase === ESignInputCase.error
           ? "errField"
-          : inputCase == ESignInputCase.success
+          : inputCase === ESignInputCase.success
           ? "sucField"
           : ""
       }`}
@@ -75,7 +70,7 @@ const Index: React.FC<IProps> = ({
         onChange={(e) => setVal(e.target.value.trim())}
         value={val}
       />
-      {inputCase == ESignInputCase.error && <Icon.WarnInput />}
+      {inputCase === ESignInputCase.error && <Icon.WarnInput />}
 
       {kind !== ESignButtonType.username ? (
         isHide ? (
@@ -84,7 +79,7 @@ const Index: React.FC<IProps> = ({
           <Icon.HidePassword onClick={_onClick} />
         )
       ) : null}
-      {inputCase == ESignInputCase.error && (
+      {inputCase === ESignInputCase.error && (
         <Text mar="7px 0px 7px 8px" clr="--singInputErrorInfoClr" size="1.2rem">
           {!samePassword
             ? "Passwords arent same!"

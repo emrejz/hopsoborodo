@@ -1,7 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import Block from "styledComps/block";
-import Text from "styledComps/text";
+import { Block, Text } from "styledComps";
 
 interface IProps {}
 const Brand: React.FC<IProps> = () => {

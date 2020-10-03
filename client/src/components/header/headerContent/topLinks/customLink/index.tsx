@@ -1,7 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import Block from "styledComps/block";
-import Text from "styledComps/text";
+import { Block } from "styledComps";
 import DeliveryMenu from "./deliveryMenu";
 
 import "./index.scss";

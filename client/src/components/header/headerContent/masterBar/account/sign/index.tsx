@@ -1,7 +1,6 @@
 import React, { useContext } from "react";
 import { useHistory } from "react-router-dom";
-import Block from "styledComps/block";
-import Text from "styledComps/text";
+import { Block, Text } from "styledComps";
 import * as Icon from "components/icons";
 import { SessionContext } from "stores/session";
 
