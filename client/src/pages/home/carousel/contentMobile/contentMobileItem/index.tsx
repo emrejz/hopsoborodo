@@ -1,7 +1,6 @@
 import React from "react";
-import { useHistory } from "react-router-dom";
-import Block from "styledComps/block";
-import Text from "styledComps/text";
+import { Link } from "react-router-dom";
+import { Block, Text } from "styledComps";
 import { ICarouselListElement } from "interfaces";
 
 import "./index.scss";
@@ -12,11 +11,9 @@ interface IProps {
 const Index: React.FC<IProps> = ({
   data: { title, desc, img, mobileBC, path },
 }) => {
-  const history = useHistory();
-  const _onClick = () => history.push(path);
   return (
-    <Block className="carouselContentMobileItemContainer" onClick={_onClick}>
-      <img src={img} alt={title} onClick={_onClick} />
+    <Block as={Link} to={path} className="carouselContentMobileItemContainer">
+      <img src={img} alt={title} />
       <Block col style={{ backgroundColor: mobileBC }} className="info">
         <Text className="title">{title}</Text>
         <Text className="desc">{desc}</Text>
