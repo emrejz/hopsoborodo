@@ -1,52 +1,59 @@
 import { ApolloQueryResult } from "@apollo/client";
 
 export interface ISession {
-  __typename: string;
   username: string;
+}
+export interface ISessionQuery {
+  activeUser: ISession;
 }
 export interface ISessionState {
   session: ISession;
   loading: boolean;
   error: string;
-  refetch: (() => Promise<ApolloQueryResult<any>[]>) | null;
+  refetch: TSessionRefetch;
 }
 export interface ISessionLoadingAction {
-  type: ESessionActionTypes;
+  type: ESessionActionTypes.loading;
   payload: {
     loading: boolean;
   };
 }
 export interface ISessionSuccessAction {
-  type: ESessionActionTypes;
+  type: ESessionActionTypes.success;
   payload: {
     session: ISession;
+    refetch: TSessionRefetch;
   };
 }
 export interface ISessionErrorAction {
-  type: ESessionActionTypes;
+  type: ESessionActionTypes.error;
   payload: {
     error: string;
   };
 }
-export interface ISessionSignAction {
-  type: ESessionActionTypes;
-  payload: {
-    refetch: () => Promise<ApolloQueryResult<any>[]>;
-  };
-}
+
 export type TSessionAction =
   | ISessionLoadingAction
   | ISessionSuccessAction
-  | ISessionErrorAction
-  | ISessionSignAction;
+  | ISessionErrorAction;
 
+export type TSessionRefetch =
+  | ((
+      includeStandby?: boolean | undefined
+    ) => Promise<ApolloQueryResult<any>[]>)
+  | null;
+
+export interface ISessionDispatch {
+  setLoading: (loading: boolean) => void;
+  setError: (error: string) => void;
+  setSession: (session: ISession, refetch: TSessionRefetch) => void;
+}
 export interface ISessionContext {
   state: ISessionState;
-  action: TSessionAction;
+  dispatch: ISessionDispatch;
 }
 export enum ESessionActionTypes {
   loading = "loading",
-  sign = "sign",
   success = "success",
   error = "error",
 }

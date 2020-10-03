@@ -1,29 +1,18 @@
 import React, { createContext, ReactNode, useReducer } from "react";
-import { ISessionState, ISession } from "interfaces";
+import { ISessionState, ISessionContext } from "interfaces";
 import { reducer } from "./reducer";
 import { actions } from "./actions";
-import { ApolloQueryResult } from "@apollo/client";
 
 export const initialState: ISessionState = {
   session: {
-    __typename: "",
     username: "",
   },
   refetch: null,
   loading: false,
   error: "",
 };
-interface IDispatch {
-  setLoading: (loading: boolean) => void;
-  setRefetch: (refetch: () => Promise<ApolloQueryResult<any>[]>) => void;
-  setError: (error: string) => void;
-  setSession: (session: ISession) => void;
-}
-interface asa {
-  state: ISessionState;
-  dispatch: IDispatch;
-}
-export const SessionContext = createContext({} as asa);
+
+export const SessionContext = createContext({} as ISessionContext);
 interface IProps {
   children: ReactNode;
 }

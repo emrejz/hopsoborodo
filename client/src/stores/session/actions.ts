@@ -1,24 +1,26 @@
 import React from "react";
-import { ESessionActionTypes, TSessionAction, ISession } from "interfaces";
-import { ApolloQueryResult } from "@apollo/client";
+import {
+  ESessionActionTypes,
+  TSessionAction,
+  ISessionDispatch,
+  TSessionRefetch,
+  ISession,
+} from "interfaces";
 
-export const actions = (dispatch: React.Dispatch<TSessionAction>) => {
+export const actions = (
+  dispatch: React.Dispatch<TSessionAction>
+): ISessionDispatch => {
   function setLoading(loading: boolean) {
     dispatch({
       type: ESessionActionTypes.loading,
       payload: { loading },
     });
   }
-  function setRefetch(refetch: () => Promise<ApolloQueryResult<any>[]>) {
-    dispatch({
-      type: ESessionActionTypes.sign,
-      payload: { refetch },
-    });
-  }
-  function setSession(session: ISession) {
+
+  function setSession(session: ISession, refetch: TSessionRefetch) {
     dispatch({
       type: ESessionActionTypes.success,
-      payload: { session },
+      payload: { session, refetch },
     });
   }
   function setError(error: string) {
@@ -29,7 +31,6 @@ export const actions = (dispatch: React.Dispatch<TSessionAction>) => {
   }
   return {
     setLoading,
-    setRefetch,
     setSession,
     setError,
   };

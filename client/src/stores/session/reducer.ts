@@ -2,23 +2,16 @@ import {
   ISessionState,
   TSessionAction,
   ESessionActionTypes,
-  ISessionSignAction,
   ISessionSuccessAction,
   ISessionErrorAction,
   ISessionLoadingAction,
 } from "interfaces/index";
-
+//working like carousel store
 export const reducer = (
   state: ISessionState,
   action: TSessionAction
 ): ISessionState => {
-  const { type, payload } = action;
-  switch (type) {
-    case ESessionActionTypes.sign:
-      return {
-        ...state,
-        refetch: (action as ISessionSignAction).payload.refetch,
-      };
+  switch (action.type) {
     case ESessionActionTypes.loading:
       return {
         ...state,
@@ -29,6 +22,7 @@ export const reducer = (
       return {
         ...state,
         session: (action as ISessionSuccessAction).payload.session,
+        refetch: (action as any).payload.refetch,
       };
     case ESessionActionTypes.error:
       return {
