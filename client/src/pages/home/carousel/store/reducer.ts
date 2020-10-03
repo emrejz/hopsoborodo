@@ -2,12 +2,6 @@ import {
   ICarouselState,
   TCarouselAction,
   ECarouselActionTypes,
-  ICarouselLoadingAction,
-  ICarouselSuccessAction,
-  ICarouselErrorAction,
-  ICarouselTabListAction,
-  ICarouselActiveTabAction,
-  ICarouselActiveItemAction,
 } from "interfaces";
 
 export const reducer = (
@@ -18,34 +12,34 @@ export const reducer = (
     case ECarouselActionTypes.loading:
       return {
         ...state,
-        loading: (action as ICarouselLoadingAction).payload.loading,
+        loading: action.payload.loading,
       };
     case ECarouselActionTypes.success:
       return {
         ...state,
-        data: (action as ICarouselSuccessAction).payload.data,
+        data: action.payload.data,
       };
     case ECarouselActionTypes.error:
       return {
         ...state,
-        error: (action as ICarouselErrorAction).payload.error,
+        error: action.payload.error,
       };
     case ECarouselActionTypes.tabList:
       return {
         ...state,
-        tabList: (action as ICarouselTabListAction).payload.tabList,
+        tabList: action.payload.tabList,
       };
     case ECarouselActionTypes.activeTab:
       return {
         ...state,
-        activeTab: (action as ICarouselActiveTabAction).payload.activeTab,
+        activeTab: action.payload.activeTab,
         selectedList:
           state.data[state.tabList.indexOf(action.payload.activeTab)]?.list,
       };
     case ECarouselActionTypes.activeItem:
       return {
         ...state,
-        activeItem: (action as ICarouselActiveItemAction).payload.activeItem,
+        activeItem: action.payload.activeItem,
       };
     default:
       console.log("Unknown 'session' action");
