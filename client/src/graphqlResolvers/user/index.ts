@@ -18,6 +18,7 @@ export const activeUser = gql`
   query {
     activeUser {
       username
+      role
     }
   }
 `;
