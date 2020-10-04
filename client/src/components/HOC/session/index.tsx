@@ -7,6 +7,7 @@ import { ISessionQuery } from "interfaces";
 import { IProps } from "router";
 
 interface IPropsHOC {}
+
 const index = (Component: React.FC<IProps>) => (props: IPropsHOC) => {
   const { data, loading, error, client } = useQuery<ISessionQuery>(activeUser);
   const { dispatch } = useContext(SessionContext);
