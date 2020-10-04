@@ -8,12 +8,12 @@ module.exports = {
   //     throw error;
   //   }
   // },
-  getCarousel: async (parent, args, { Carousel }) => {
+  getCarousel: async (parent, { isItemActive }, { Carousel }) => {
     try {
       return await Carousel.aggregate([
         {
           $match: {
-            isItemActive: true,
+            isItemActive,
           },
         },
         {

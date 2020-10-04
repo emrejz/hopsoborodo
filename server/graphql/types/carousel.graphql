@@ -33,5 +33,5 @@ type Mutation {
   addCarouselElement(data: CarouselElementInput!): CarouselElement!
 }
 type Query {
-  getCarousel: [Carousel!]!
+  getCarousel(isItemActive: Boolean!): [Carousel!]!
 }
