@@ -8,7 +8,7 @@ module.exports = {
       if (user) {
         const result = await bcrypt.compare(password, user.password);
         if (result) {
-          return { token: await sign(username) };
+          return { token: await sign(user) };
         } else {
           throw new Error("Wrong password!");
         }
@@ -20,10 +20,23 @@ module.exports = {
     }
   },
   activeUser: async (parent, args, { User, activeUser }) => {
-    try {
-      return activeUser;
-    } catch (error) {
-      throw error;
-    }
+    return activeUser;
+
+    //which one is correct way???
+
+    // const { username } = activeUser;
+    // console.log(username);
+    // console.log(activeUser);
+    // try {
+    //   if (username) {
+    //     const { isAdmin, username } = await User.findOne({ username });
+    //     return {
+    //       isAdmin,
+    //       username,
+    //     };
+    //   }
+    // } catch (error) {
+    //   throw error;
+    // }
   },
 };

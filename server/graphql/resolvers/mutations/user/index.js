@@ -3,8 +3,8 @@ const { sign } = require("../../../../helpers/jwt");
 module.exports = {
   createUser: async (parent, { data: { username, password } }, { User }) => {
     try {
-      await User({ username, password }).save();
-      return { token: await sign(username) };
+      const user = await User({ username, password }).save();
+      return { token: await sign(user) };
     } catch (error) {
       forUser(error.message);
       throw error;
