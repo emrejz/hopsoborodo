@@ -1,6 +1,6 @@
 import React, { useContext } from "react";
 import { Block, Text } from "styledComps";
-import { CarouselContext } from "../../store";
+import { CarouselContext } from "stores/carousel";
 
 import "./index.scss";
 

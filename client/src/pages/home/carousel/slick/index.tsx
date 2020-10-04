@@ -2,7 +2,7 @@ import React, { useContext } from "react";
 import { Block, Text } from "styledComps";
 import { ICarouselListElement, ICarouselContext } from "interfaces";
 import * as Icon from "components/icons";
-import { CarouselContext } from "../store";
+import { CarouselContext } from "stores/carousel";
 
 import "./index.scss";
 
