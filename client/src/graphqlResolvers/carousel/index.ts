@@ -1,8 +1,8 @@
 import { gql } from "@apollo/client";
 
 export const getCarousel = gql`
-  query {
-    getCarousel {
+  query($isItemActive: Boolean!) {
+    getCarousel(isItemActive: $isItemActive) {
       mainTitle
       list {
         isItemActive
