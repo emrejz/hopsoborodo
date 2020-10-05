@@ -1,13 +1,14 @@
-import React, { useContext } from "react";
+import React from "react";
 import { Block, Text } from "styledComps";
+import CarouselPanel from "./carousel";
 
 import "./index.scss";
 
 interface IProps {}
 const Home: React.FC<IProps> = () => {
   return (
-    <Block>
-      <Text>emre</Text>
+    <Block className="adminContainer">
+      <CarouselPanel />
     </Block>
   );
 };

@@ -1,0 +1,19 @@
+.adminCarouselContainer {
+  form {
+    flex-wrap: wrap;
+    div {
+      align-items: center;
+      justify-content: center;
+      margin: 4px;
+      padding: 10px;
+      border: 2px solid black;
+      label {
+        font-size: 1.8rem;
+        margin-right: 10px;
+      }
+      input {
+        font-size: 1.7rem;
+      }
+    }
+  }
+}
