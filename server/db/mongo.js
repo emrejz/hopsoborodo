@@ -1,7 +1,8 @@
 const mongoose = require("mongoose");
 module.exports = async () => {
+  const { PORT, MONGO_URL_DEV, MONGO_URL_PROD } = process.env;
   try {
-    await mongoose.connect(process.env.MONGO_URL_PROD, {
+    await mongoose.connect(PORT ? MONGO_URL_PROD : MONGO_URL_DEV, {
       useNewUrlParser: true,
       useUnifiedTopology: true,
       useCreateIndex: true,
