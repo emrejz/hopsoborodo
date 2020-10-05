@@ -2,6 +2,7 @@ import { ApolloQueryResult } from "@apollo/client";
 
 export interface ISession {
   username: string;
+  role: string;
 }
 export interface ISessionQuery {
   activeUser: ISession;
