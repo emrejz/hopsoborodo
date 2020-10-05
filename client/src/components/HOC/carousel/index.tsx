@@ -34,7 +34,7 @@ const index = (Component: React.FC) => ({ isItemActive }: ICondition) => (
       });
       dispatch.setTabList(tempArr);
       dispatch.setActiveTab(tempArr[0]);
-      dispatch.setActiveItem(data.getCarousel[0].list[0]);
+      dispatch.setActiveItem(data.getCarousel[0]?.list[0]);
     }
   }, [data, loading, error]);
 

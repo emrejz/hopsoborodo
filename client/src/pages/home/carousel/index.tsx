@@ -28,14 +28,15 @@ export const Index: React.FC<IProps> = () => {
     >
       <img className="backdropImg" src={activeItem?.backImg} alt="backdrop" />
       <Header />
-      {width && width > 800 ? (
-        <Block col>
-          <ContentDesktop />
-          <Slick />
-        </Block>
-      ) : (
-        <ContentMobile selectedList={selectedList} />
-      )}
+      {selectedList &&
+        (width && width > 800 ? (
+          <Block col>
+            <ContentDesktop />
+            <Slick />
+          </Block>
+        ) : (
+          <ContentMobile selectedList={selectedList} />
+        ))}
     </Block>
   );
 };
