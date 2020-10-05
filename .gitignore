@@ -1,3 +1,9 @@
+#unnecessary folders
+*/build
+
+#unnecessary files
+*/.env.production
+
 # Logs
 logs
 *.log
