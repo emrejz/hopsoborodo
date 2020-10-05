@@ -6,6 +6,7 @@ import { actions } from "./actions";
 export const initialState: ISessionState = {
   session: {
     username: "",
+    role: "",
   },
   refetch: null,
   loading: false,
