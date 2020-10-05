@@ -20,7 +20,7 @@ const index = (Component: React.FC<IProps>) => (props: IPropsHOC) => {
   return (
     <>
       <CompStatus loading={loading} error={error?.message} />
-      <Component {...props} />
+      <Component {...props} role={data?.activeUser?.role} />
     </>
   );
 };
