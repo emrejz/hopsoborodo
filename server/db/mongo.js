@@ -1,7 +1,7 @@
 const mongoose = require("mongoose");
 module.exports = async () => {
   try {
-    await mongoose.connect("mongodb://localhost:27017/hopsoborodo", {
+    await mongoose.connect(process.env.MONGO_URL_PROD, {
       useNewUrlParser: true,
       useUnifiedTopology: true,
       useCreateIndex: true,

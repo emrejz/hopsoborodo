@@ -14,7 +14,7 @@ mongo();
 const app = express();
 
 const corsOptions = {
-  origin: ["http://localhost:3000"],
+  origin: ["http://localhost:3000", "http://hopsoborodo.surge.sh/"],
   credentials: true,
 };
 app.use(cors(corsOptions));
@@ -46,6 +46,6 @@ const server = new ApolloServer({
 });
 server.applyMiddleware({ app, cors: false });
 
-app.listen({ port: 4000 }, () =>
+app.listen({ port: process.env.PORT || 4000 }, () =>
   console.log(`🚀 Server ready at http://localhost:4000${server.graphqlPath}`)
 );
