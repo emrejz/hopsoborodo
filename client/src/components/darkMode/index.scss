@@ -1,0 +1,19 @@
+@import "constants/mediaVars.scss";
+.darkModeContainer {
+  top: 10px;
+  right: 20px;
+  align-items: center;
+  justify-content: flex-end;
+  padding-right: 4px;
+  padding-top: 4px;
+  background-color: var(--primary);
+
+  input {
+    margin-left: 4px;
+  }
+}
+@media screen and (max-width: $mobile) {
+  .masterBarContainer {
+    padding-top: 0px;
+  }
+}
