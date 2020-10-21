@@ -42,7 +42,7 @@ export const Block: StyledComponent<"div", any, Props, never> = styled.div<
     ${props.wid ? `width:${props.wid}` : ""};  
     ${props.size ? `font-size:var(${props.size})` : ""};    
     ${props.font ? `font-family:var(${props.font})` : ""};    
-    ${props.clr ? `color:var(${props.clr})` : ""};    
+    color:${props.clr ?  `var(${props.clr})` : "var(--textPrimary)"};    
     ${props.wei ? `font-weight:var(${props.wei})` : ""};    
     ${props.mar ? `margin:${props.mar}` : ""}; 
     ${props.pad ? `padding:${props.pad}` : ""};
